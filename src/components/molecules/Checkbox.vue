@@ -31,16 +31,25 @@ const updateValue = (e: Event) => {
 </script>
 
 <template>
-  <fieldset>
-    <template v-for="(option, index) in options" :key="index">
-      <label>
-        <input
-          type="checkbox"
-          :name="name"
-          :value="option.value"
-          @change="updateValue"
-        />{{ option.label }}
-      </label>
-    </template>
-  </fieldset>
+  <div>
+    <fieldset>
+      <legend>{{ label }}</legend>
+      <div class="flex-centered space-x-6">
+        <template v-for="(option, index) in options" :key="index">
+          <div class="space-x-2">
+            <input
+              :id="option.label"
+              type="checkbox"
+              :name="name"
+              :value="option.value"
+              @change="updateValue"
+            />
+            <label :for="option.label">
+              {{ option.label }}
+            </label>
+          </div>
+        </template>
+      </div>
+    </fieldset>
+  </div>
 </template>
