@@ -26,13 +26,21 @@ onMounted(() => {
 })
 </script>
 <template>
-  <fieldset>
-    <select :name="name" @change="updateValue">
+  <div>
+    <label class="block" :for="label">
+      {{ label }}
+    </label>
+    <select
+      :id="label"
+      class="w-full rounded"
+      :name="name"
+      @change="updateValue"
+    >
       <template v-for="(option, index) in options" :key="index">
         <option :value="option.value">
           {{ option.label }}
         </option>
       </template>
     </select>
-  </fieldset>
+  </div>
 </template>

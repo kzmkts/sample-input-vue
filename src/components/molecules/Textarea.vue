@@ -25,12 +25,17 @@ const updateValue = (e: Event) => {
 </script>
 
 <template>
-  <textarea
-    :name="name"
-    :value="myTextarea"
-    :placeholder="placeholder"
-    :rows="rows"
-    :cols="cols"
-    @input="updateValue"
-  ></textarea>
+  <div>
+    <label class="block" :for="label">{{ label }}</label>
+    <textarea
+      :id="label"
+      class="w-full rounded"
+      :name="name"
+      :value="myTextarea"
+      :placeholder="placeholder"
+      :rows="rows"
+      :cols="cols"
+      @input="updateValue"
+    ></textarea>
+  </div>
 </template>

@@ -21,19 +21,26 @@ const updateValue = (e: Event) => {
 }
 </script>
 <template>
-  <fieldset>
-    <legend>{{ label }}</legend>
-    <template v-for="(option, index) in options" :key="index">
-      <label>
-        {{ label }}
-        <input
-          :name="name"
-          :value="option.value"
-          type="radio"
-          :checked="option.value === modelValue"
-          @change="updateValue"
-        />{{ option.label }}
-      </label>
-    </template>
-  </fieldset>
+  <div>
+    <fieldset>
+      <legend>{{ label }}</legend>
+      <div class="flex-centered space-x-6">
+        <template v-for="(option, index) in options" :key="index">
+          <div class="space-x-2">
+            <input
+              :id="option.label"
+              :name="name"
+              :value="option.value"
+              type="radio"
+              :checked="option.value === modelValue"
+              @change="updateValue"
+            />
+            <label :for="option.label">
+              {{ option.label }}
+            </label>
+          </div>
+        </template>
+      </div>
+    </fieldset>
+  </div>
 </template>

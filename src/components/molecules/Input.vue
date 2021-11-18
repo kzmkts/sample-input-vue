@@ -21,14 +21,18 @@ const updateValue = (e: Event) => {
 }
 </script>
 <template>
-  <label>
-    {{ label }}
+  <div>
+    <label class="block" :for="label">
+      {{ label }}
+    </label>
     <input
+      :id="label"
+      class="w-full rounded"
       :name="name"
       :value="modelValue"
       :type="type"
       :placeholder="placeholder"
       @input="updateValue"
     />
-  </label>
+  </div>
 </template>
